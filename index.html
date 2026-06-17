@@ -3,7 +3,17 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Gounehi Ismael Barro — Portfolio</title>
+<title>Gounehi Ismael Barro — Portfolio | Étudiant en Informatique de Gestion</title>
+<meta name="description" content="Portfolio de Gounehi Ismael Barro, étudiant en Licence 2 Informatique de Gestion à l'Université de l'Unité Africaine (Ouagadougou). Développement web, mobile, bases de données et systèmes d'information. Disponible pour un stage."/>
+<meta name="author" content="Gounehi Ismael Barro"/>
+<meta name="keywords" content="Gounehi Ismael Barro, développeur web, informatique de gestion, portfolio, Ouagadougou, Burkina Faso, stage, PHP, JavaScript, Java"/>
+<meta name="theme-color" content="#050510"/>
+<meta property="og:title" content="Gounehi Ismael Barro — Portfolio"/>
+<meta property="og:description" content="Étudiant en Informatique de Gestion — développement web & mobile. Disponible pour un stage."/>
+<meta property="og:type" content="website"/>
+<meta property="og:locale" content="fr_FR"/>
+<meta name="twitter:card" content="summary"/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%237C6CFF'/%3E%3Ctext x='50' y='68' font-family='Arial,sans-serif' font-size='38' font-weight='bold' fill='white' text-anchor='middle'%3EGIB%3C/text%3E%3C/svg%3E"/>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Syne:wght@600;700;800&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
@@ -60,10 +70,10 @@ body.hov #ring{transform:scale(1.8);border-color:var(--teal);background:rgba(0,2
 
 /* ═══ MESH BG ═══ */
 .mesh{position:fixed;inset:0;z-index:0;overflow:hidden}
-.blob{position:absolute;border-radius:50%;filter:blur(90px);opacity:.5;mix-blend-mode:screen}
+.blob{position:absolute;border-radius:50%;filter:blur(100px);opacity:.4;mix-blend-mode:screen}
 .b1{width:500px;height:500px;background:radial-gradient(circle,#7C6CFF,transparent 70%);top:-150px;left:-100px;animation:morph1 18s ease-in-out infinite}
 .b2{width:450px;height:450px;background:radial-gradient(circle,#00E5C0,transparent 70%);bottom:-120px;right:-80px;animation:morph2 22s ease-in-out infinite}
-.b3{width:380px;height:380px;background:radial-gradient(circle,#FF5CAD,transparent 70%);top:45%;left:55%;animation:morph3 25s ease-in-out infinite}
+.b3{width:380px;height:380px;background:radial-gradient(circle,#9D8BFF,transparent 70%);top:45%;left:55%;animation:morph3 25s ease-in-out infinite}
 @keyframes morph1{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(120px,80px) scale(1.2)}66%{transform:translate(60px,160px) scale(.9)}}
 @keyframes morph2{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(-100px,-60px) scale(1.15)}66%{transform:translate(-160px,40px) scale(.95)}}
 @keyframes morph3{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-120px,-100px) scale(1.25)}}
@@ -83,7 +93,7 @@ nav.scrolled{background:rgba(5,5,16,0.85);border-color:rgba(124,108,255,0.25);bo
 
 /* ═══ SECTIONS ═══ */
 main{position:relative;z-index:2}
-section{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:7rem 1.5rem 5rem;position:relative}
+section{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:7rem 1.5rem 5rem;position:relative;scroll-margin-top:5rem}
 .container{width:100%;max-width:1140px;margin:0 auto}
 
 /* ═══ REVEAL ═══ */
@@ -117,8 +127,8 @@ section{min-height:100vh;display:flex;align-items:center;justify-content:center;
 @keyframes gradShift{to{background-position:200% center}}
 .glitch{position:relative}
 .glitch::before,.glitch::after{content:attr(data-text);position:absolute;inset:0;opacity:0;pointer-events:none;transition:opacity .2s}
-.glitch:hover::before{opacity:.85;-webkit-text-fill-color:var(--teal);animation:gl1 .35s steps(2) infinite;transform:translateX(3px)}
-.glitch:hover::after{opacity:.85;-webkit-text-fill-color:var(--coral);animation:gl2 .35s steps(2) infinite;transform:translateX(-3px)}
+.glitch:hover::before{opacity:.22;-webkit-text-fill-color:var(--teal);animation:gl1 1s steps(3) infinite;transform:translateX(1px)}
+.glitch:hover::after{opacity:.22;-webkit-text-fill-color:var(--violet);animation:gl2 1s steps(3) infinite;transform:translateX(-1px)}
 @keyframes gl1{0%{clip-path:inset(20% 0 60% 0)}50%{clip-path:inset(70% 0 10% 0)}100%{clip-path:inset(40% 0 40% 0)}}
 @keyframes gl2{0%{clip-path:inset(60% 0 20% 0)}50%{clip-path:inset(10% 0 70% 0)}100%{clip-path:inset(50% 0 30% 0)}}
 .hero-role{font-family:var(--font-m);font-size:clamp(14px,2vw,19px);color:var(--txt2);margin-bottom:1.5rem;letter-spacing:.5px}
@@ -673,10 +683,11 @@ themeBtn.addEventListener('click',()=>{
   else{document.documentElement.setAttribute('data-theme','light');themeIcon.textContent='🌙';localStorage.setItem('theme','light')}
 });
 
-/* ── CONTACT FORM ── */
-/* Pour recevoir les messages dans ta boîte mail, crée un formulaire gratuit sur https://formspree.io
-   puis remplace YOUR_ID ci-dessous par ton identifiant. Sinon, le bouton ouvre l'app mail (mailto). */
-const FORM_ENDPOINT='https://formspree.io/f/YOUR_ID';
+/* ── CONTACT FORM (FormSubmit.co — livraison directe en boîte mail, sans inscription) ──
+   À la TOUTE PREMIÈRE soumission, FormSubmit envoie un email de confirmation à
+   gounehi.ismaelbarro18@gmail.com. Clique le lien une seule fois pour activer la réception ;
+   ensuite tous les messages arrivent directement dans ta boîte. Repli mailto si hors-ligne. */
+const FORM_ENDPOINT='https://formsubmit.co/ajax/gounehi.ismaelbarro18@gmail.com';
 const cform=document.getElementById('cform'),formMsg=document.getElementById('formMsg'),fbtn=document.getElementById('fbtn');
 cform.addEventListener('submit',async e=>{
   e.preventDefault();
@@ -686,22 +697,23 @@ cform.addEventListener('submit',async e=>{
   formMsg.className='fmsg';
   if(!name||!email||!msg){formMsg.textContent='⚠ Merci de remplir tous les champs.';formMsg.classList.add('err');return}
   if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){formMsg.textContent='⚠ Adresse email invalide.';formMsg.classList.add('err');return}
-  fbtn.disabled=true;fbtn.querySelector('span').textContent='Envoi...';
-  if(FORM_ENDPOINT.includes('YOUR_ID')){
-    // Fallback mailto — ouvre l'application mail du visiteur
+  fbtn.disabled=true;fbtn.querySelector('span').textContent='Envoi…';
+  try{
+    const r=await fetch(FORM_ENDPOINT,{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify({Nom:name,Email:email,Message:msg,_subject:'Nouveau message du portfolio — '+name,_template:'table'})
+    });
+    const data=await r.json().catch(()=>({}));
+    if(r.ok){formMsg.textContent='✓ Message envoyé ! Merci, je te répondrai rapidement.';formMsg.classList.add('ok');cform.reset()}
+    else{throw new Error(data.message||'send failed')}
+  }catch(_){
+    /* Repli : ouvre l'application mail du visiteur avec le message pré-rempli */
     const subject=encodeURIComponent('Contact portfolio — '+name);
     const body=encodeURIComponent(msg+'\n\n—\n'+name+' ('+email+')');
     window.location.href='mailto:gounehi.ismaelbarro18@gmail.com?subject='+subject+'&body='+body;
-    formMsg.textContent='✓ Ton client mail va s\'ouvrir avec le message pré-rempli.';
-    formMsg.classList.add('ok');
-    fbtn.disabled=false;fbtn.querySelector('span').textContent='Envoyer le message';
-    return;
+    formMsg.textContent='✓ Ton application mail va s\'ouvrir avec le message.';formMsg.classList.add('ok');
   }
-  try{
-    const r=await fetch(FORM_ENDPOINT,{method:'POST',headers:{'Accept':'application/json'},body:new FormData(cform)});
-    if(r.ok){formMsg.textContent='✓ Message envoyé ! Je te répondrai vite.';formMsg.classList.add('ok');cform.reset()}
-    else{throw new Error()}
-  }catch(_){formMsg.textContent='✗ Erreur d\'envoi, réessaie ou écris-moi directement.';formMsg.classList.add('err')}
   fbtn.disabled=false;fbtn.querySelector('span').textContent='Envoyer le message';
 });
 
