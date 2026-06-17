@@ -87,9 +87,30 @@ nav.scrolled{background:rgba(5,5,16,0.85);border-color:rgba(124,108,255,0.25);bo
 .nav-link{padding:.45rem .95rem;font-size:13px;font-weight:500;color:var(--txt2);border-radius:50px;text-decoration:none;transition:all .3s var(--ease);position:relative}
 .nav-link:hover,.nav-link.active{color:var(--txt)}
 .nav-link.active{background:rgba(124,108,255,0.15)}
+.nav-links{display:flex;align-items:center;gap:.2rem}
 .theme-btn{margin-left:.4rem;width:34px;height:34px;border-radius:50%;border:1px solid var(--border);background:var(--card);cursor:none;display:flex;align-items:center;justify-content:center;font-size:15px;transition:all .3s var(--ease2);flex-shrink:0}
 .theme-btn:hover{border-color:var(--border-hover);transform:rotate(20deg) scale(1.1)}
 .theme-btn span{transition:transform .5s var(--ease2);display:inline-block}
+/* hamburger */
+.nav-toggle{display:none;width:38px;height:38px;border-radius:50%;border:1px solid var(--border);background:var(--card);cursor:pointer;align-items:center;justify-content:center;flex-shrink:0;margin-left:.3rem;flex-direction:column;gap:4px;padding:0}
+.nav-toggle span{display:block;width:16px;height:2px;background:var(--txt);border-radius:2px;transition:all .35s var(--ease)}
+.nav-toggle.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.nav-toggle.open span:nth-child(2){opacity:0}
+.nav-toggle.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+/* mobile overlay menu */
+.mobile-menu{position:fixed;inset:0;z-index:480;background:rgba(5,5,16,0.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;opacity:0;visibility:hidden;transition:opacity .4s var(--ease),visibility .4s}
+[data-theme="light"] .mobile-menu{background:rgba(243,242,251,0.97)}
+.mobile-menu.open{opacity:1;visibility:visible}
+.mm-link{font-family:var(--font-h);font-size:1.8rem;font-weight:700;color:var(--txt);text-decoration:none;padding:.6rem 1.5rem;opacity:0;transform:translateY(20px);transition:all .5s var(--ease);position:relative}
+.mobile-menu.open .mm-link{opacity:1;transform:none}
+.mobile-menu.open .mm-link:nth-child(1){transition-delay:.08s}
+.mobile-menu.open .mm-link:nth-child(2){transition-delay:.14s}
+.mobile-menu.open .mm-link:nth-child(3){transition-delay:.2s}
+.mobile-menu.open .mm-link:nth-child(4){transition-delay:.26s}
+.mobile-menu.open .mm-link:nth-child(5){transition-delay:.32s}
+.mobile-menu.open .mm-link:nth-child(6){transition-delay:.38s}
+.mm-link:active,.mm-link.active{color:var(--purple2)}
+.mm-num{font-family:var(--font-m);font-size:.85rem;color:var(--purple);vertical-align:super;margin-right:.4rem}
 
 /* ═══ SECTIONS ═══ */
 main{position:relative;z-index:2}
@@ -265,6 +286,8 @@ section{min-height:100vh;display:flex;align-items:center;justify-content:center;
 .cip{background:rgba(124,108,255,.15)}.cit{background:rgba(0,229,192,.12)}.cic{background:rgba(255,92,157,.12)}
 .clbl{font-size:11px;color:var(--txt3);letter-spacing:.5px;margin-bottom:.4rem;font-family:var(--font-m)}
 .cval{font-size:14px;font-weight:500;word-break:break-word}
+.ccard-link{text-decoration:none;color:inherit;display:block;cursor:none}
+.wa-badge{position:absolute;bottom:-4px;right:-4px;width:20px;height:20px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;border:2px solid var(--bg)}
 .avail{display:inline-flex;align-items:center;gap:9px;margin-top:2rem;padding:.7rem 1.6rem;border-radius:50px;background:rgba(0,229,192,.08);border:1px solid rgba(0,229,192,.25);font-size:13px;color:var(--teal);font-weight:500}
 .cform{max-width:520px;margin:2.5rem auto 0;text-align:left;display:flex;flex-direction:column;gap:1rem}
 .frow{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
@@ -287,21 +310,38 @@ footer span{color:var(--purple2)}
 ::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--bg)}
 ::-webkit-scrollbar-thumb{background:linear-gradient(var(--purple),var(--teal));border-radius:3px}
 
-@media(max-width:880px){
+@media(max-width:980px){
   #about .grid,#formation .layout,.skills-layout{grid-template-columns:1fr;gap:2.5rem}
   .pgrid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:768px){
   body{cursor:auto}#cursor,#ring,.trail,#spotlight{display:none}
-  .btn-p,.btn-o,.proj{cursor:auto}
-  nav{top:.75rem;padding:.4rem .45rem}.nav-logo{font-size:13px;padding:.35rem .6rem;margin-right:.2rem}
-  .nav-link{padding:.35rem .55rem;font-size:11px}
-  .qual-grid,.interests{grid-template-columns:1fr}
+  .btn-p,.btn-o,.proj,.ccard-link,.nav-toggle,.theme-btn,.fbtn{cursor:pointer}
+  nav{top:.85rem;padding:.4rem .5rem;gap:.1rem}
+  .nav-logo{font-size:14px;padding:.35rem .7rem;margin-right:auto}
+  .nav-links{display:none}
+  .nav-toggle{display:flex}
+  .qual-grid,.interests{grid-template-columns:1fr 1fr}
+  .marquee{padding:1.1rem 0}.mq-item{font-size:1.25rem;gap:2rem}
+  .hero-name{letter-spacing:-1.5px}
+  .hero-desc{font-size:16px}
+  section{min-height:auto;padding:5.5rem 1.5rem 4rem}
+  #hero{min-height:100vh;padding-top:7.5rem}
+  .stitle{letter-spacing:-1px}
 }
 @media(max-width:560px){
-  section{padding:6rem 1.1rem 4rem}.pgrid{grid-template-columns:1fr}.ccards{grid-template-columns:1fr}
-  .hero-stats{gap:1rem}.hstat-num{font-size:1.7rem}
-  nav{gap:0}.nav-link{padding:.35rem .45rem}
+  section{padding:5rem 1.1rem 3.5rem}
+  .pgrid{grid-template-columns:1fr}.ccards{grid-template-columns:1fr;gap:.85rem}
+  .qual-grid,.interests{grid-template-columns:1fr}
+  .hero-stats{gap:.75rem;max-width:100%}.hstat-num{font-size:1.7rem}.hstat-lbl{font-size:10px}
+  .hero-cta{gap:.7rem}.btn-p,.btn-o{width:100%;justify-content:center;padding:.85rem 1.5rem}
+  .hero-name{font-size:clamp(2.6rem,15vw,4rem);letter-spacing:-1px}
+  .hero-badge{font-size:11px;padding:.35rem .85rem;text-align:center}
+  .mm-link{font-size:1.5rem}
+  .slabel{font-size:10px}
+  .stitle{font-size:clamp(1.9rem,8vw,2.6rem)}
+  .gcard,.proj{padding:1.3rem}
+  .cform{margin-top:2rem}
 }
 @media(prefers-reduced-motion:reduce){
   *{animation-duration:.01ms!important;transition-duration:.01ms!important}
@@ -337,14 +377,27 @@ footer span{color:var(--purple2)}
 <!-- NAV -->
 <nav id="navbar">
   <span class="nav-logo">GIB</span>
-  <a href="#hero" class="nav-link active">Accueil</a>
-  <a href="#about" class="nav-link">Profil</a>
-  <a href="#skills" class="nav-link">Skills</a>
-  <a href="#formation" class="nav-link">Formation</a>
-  <a href="#projects" class="nav-link">Projets</a>
-  <a href="#contact" class="nav-link">Contact</a>
+  <div class="nav-links">
+    <a href="#hero" class="nav-link active">Accueil</a>
+    <a href="#about" class="nav-link">Profil</a>
+    <a href="#skills" class="nav-link">Skills</a>
+    <a href="#formation" class="nav-link">Formation</a>
+    <a href="#projects" class="nav-link">Projets</a>
+    <a href="#contact" class="nav-link">Contact</a>
+  </div>
   <button class="theme-btn" id="themeBtn" aria-label="Changer de thème"><span id="themeIcon">☀️</span></button>
+  <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
 </nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#hero" class="mm-link"><span class="mm-num">01</span>Accueil</a>
+  <a href="#about" class="mm-link"><span class="mm-num">02</span>Profil</a>
+  <a href="#skills" class="mm-link"><span class="mm-num">03</span>Skills</a>
+  <a href="#formation" class="mm-link"><span class="mm-num">04</span>Formation</a>
+  <a href="#projects" class="mm-link"><span class="mm-num">05</span>Projets</a>
+  <a href="#contact" class="mm-link"><span class="mm-num">06</span>Contact</a>
+</div>
 
 <main>
 
@@ -505,8 +558,11 @@ footer span{color:var(--purple2)}
       <p class="ssub reveal" data-d="2" style="margin:0 auto;text-align:center">Ouvert à toute opportunité de stage, collaboration ou projet dans le développement web, mobile ou SI.</p>
       <div class="ccards reveal" data-d="3">
         <div class="ccard"><div class="ciw cip">📍</div><div class="clbl">ADRESSE</div><div class="cval">Ouagadougou<br>Burkina Faso</div></div>
-        <div class="ccard"><div class="ciw cit">📞</div><div class="clbl">TÉLÉPHONE</div><div class="cval">+226 56 65 65 21</div></div>
-        <div class="ccard"><div class="ciw cic">✉️</div><div class="clbl">EMAIL</div><div class="cval" style="font-size:12px">gounehi.ismaelbarro18@gmail.com</div></div>
+        <a class="ccard ccard-link" href="https://wa.me/22656656521?text=Bonjour%20Ismael%2C%20je%20vous%20contacte%20depuis%20votre%20portfolio." target="_blank" rel="noopener" aria-label="Contacter sur WhatsApp">
+          <div class="ciw cit" style="position:relative">📞<span class="wa-badge"><svg viewBox="0 0 32 32" width="14" height="14" fill="#fff" aria-hidden="true"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.1 1.6 5.9L4 29l8.3-1.6c1.7.9 3.7 1.4 5.7 1.4 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-4.9 1 1-4.8-.2-.4c-1-1.6-1.5-3.4-1.5-5.3C5 9.5 9.9 4.9 16 4.9S27 9.5 27 15 22.1 24.8 16 24.8zm5.5-7.4c-.3-.2-1.8-.9-2-1-.3-.1-.5-.2-.7.2s-.8 1-1 1.2c-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.7.1-.1.3-.4.5-.6.1-.2.2-.3.3-.6.1-.2 0-.4 0-.6-.1-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1.1 1-1.1 2.5s1.1 2.9 1.3 3.1c.2.2 2.2 3.4 5.4 4.8.8.3 1.4.5 1.8.7.8.2 1.4.2 2 .1.6-.1 1.8-.7 2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg></span></div>
+          <div class="clbl">WHATSAPP</div><div class="cval">+226 56 65 65 21</div>
+        </a>
+        <a class="ccard ccard-link" href="mailto:gounehi.ismaelbarro18@gmail.com" aria-label="Envoyer un email"><div class="ciw cic">✉️</div><div class="clbl">EMAIL</div><div class="cval" style="font-size:12px">gounehi.ismaelbarro18@gmail.com</div></a>
       </div>
       <form class="cform reveal" data-d="4" id="cform" novalidate>
         <div class="frow">
@@ -628,6 +684,7 @@ window.addEventListener('scroll',()=>{
   navbar.classList.toggle('scrolled',window.scrollY>50);
   let cur='hero';secs.forEach(s=>{if(window.scrollY>=s.offsetTop-220)cur=s.id});
   navLinks.forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+cur));
+  document.querySelectorAll('.mm-link').forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+cur));
 });
 
 /* ── REVEAL ── */
@@ -667,8 +724,8 @@ window.addEventListener('scroll',()=>{
   document.querySelector('.b2').style.transform=`translateY(${-y*.1}px)`;
 });
 
-/* ── SMOOTH ANCHORS ── */
-document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
+/* ── SMOOTH ANCHORS (hors menu mobile, géré séparément) ── */
+document.querySelectorAll('a[href^="#"]:not(.mm-link)').forEach(a=>a.addEventListener('click',e=>{
   e.preventDefault();const t=document.querySelector(a.getAttribute('href'));
   if(t)t.scrollIntoView({behavior:'smooth',block:'start'});
 }));
@@ -682,6 +739,23 @@ themeBtn.addEventListener('click',()=>{
   if(isLight){document.documentElement.removeAttribute('data-theme');themeIcon.textContent='☀️';localStorage.setItem('theme','dark')}
   else{document.documentElement.setAttribute('data-theme','light');themeIcon.textContent='🌙';localStorage.setItem('theme','light')}
 });
+
+/* ── MOBILE MENU (hamburger) ── */
+const navToggle=document.getElementById('navToggle'),mobileMenu=document.getElementById('mobileMenu');
+function setMenu(open){
+  navToggle.classList.toggle('open',open);
+  mobileMenu.classList.toggle('open',open);
+  navToggle.setAttribute('aria-expanded',open?'true':'false');
+  document.body.style.overflow=open?'hidden':'';
+}
+navToggle.addEventListener('click',()=>setMenu(!mobileMenu.classList.contains('open')));
+document.querySelectorAll('.mm-link').forEach(a=>a.addEventListener('click',e=>{
+  e.preventDefault();
+  const t=document.querySelector(a.getAttribute('href'));
+  setMenu(false);
+  setTimeout(()=>{if(t)t.scrollIntoView({behavior:'smooth',block:'start'})},250);
+}));
+document.addEventListener('keydown',e=>{if(e.key==='Escape')setMenu(false)});
 
 /* ── CONTACT FORM (FormSubmit.co — livraison directe en boîte mail, sans inscription) ──
    À la TOUTE PREMIÈRE soumission, FormSubmit envoie un email de confirmation à
